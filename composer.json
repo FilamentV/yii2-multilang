@@ -1,0 +1,25 @@
+{
+    "name": "filamentv/yii2-multilang",
+    "description": "yii2 add multilanguage",
+    "keywords": ["yii2", "widget", "lang", "multilang", "breadcrumbs"],
+    "homepage": "https://github.com/FilamentV/yii2-multilang",
+    "type": "yii2-component",
+    "license": "NO",
+    "authors": [
+        {
+            "name": "FilamentV",
+            "email": "vortex.filament@gmail.com",
+            "homepage": ""
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "yiisoft/yii2-dev": "*",
+        "filamentv/app": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "filamentv\\multilang\\": ""
+        }
+    }
+}

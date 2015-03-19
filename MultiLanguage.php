@@ -11,8 +11,8 @@ use thread\models\Lang;
  * Common Імплементація мов в запити [[MultiLanguage]]
  * @package thread\components
  * @author FilamentV <vortex.filament@gmail.com>
- * @copyright (c) 2014, Thread
- * @version 19/03/2015
+ * @copyright (c) 2015, Thread
+ * @version 20/03/2015
  */
 final class MultiLanguage {
 

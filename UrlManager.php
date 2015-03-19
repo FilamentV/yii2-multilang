@@ -10,7 +10,7 @@ use thread\components\MultiLanguage;
  * @package thread\components
  * @author FilamentV <vortex.filament@gmail.com>
  * @copyright (c) 2014, Thread
- * @version 19/03/2015
+ * @version 20/03/2015
  */
 final class UrlManager extends \yii\web\UrlManager {
 
