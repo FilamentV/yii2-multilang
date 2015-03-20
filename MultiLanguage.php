@@ -1,15 +1,15 @@
 <?php
 
-namespace thread\components;
+namespace filamentv\multilang;
 
 use Yii;
 use yii\helpers\StringHelper;
-use thread\models\Lang;
+use filamentv\app\models\Lang;
 
 /**
  * Class MultiLanguage
  * Common Імплементація мов в запити [[MultiLanguage]]
- * @package thread\components
+ * @package filamentv\multilang
  * @author FilamentV <vortex.filament@gmail.com>
  * @copyright (c) 2015, Thread
  * @version 20/03/2015

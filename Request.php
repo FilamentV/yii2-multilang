@@ -1,13 +1,11 @@
 <?php
 
-namespace thread\components;
-
-use thread\components\MultiLanguage;
+namespace filamentv\multilang;
 
 /**
  * Class Request
  * Common Імплементація мов в Request [[Request]]
- * @package thread\components
+ * @package filamentv\multilang
  * @author FilamentV <vortex.filament@gmail.com>
  * @copyright (c) 2014, Thread
  * @version 20/03/2015
