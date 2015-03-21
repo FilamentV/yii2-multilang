@@ -7,8 +7,8 @@ use yii\helpers\StringHelper;
 use filamentv\app\models\Lang;
 
 /**
- * Class MultiLanguage
- * Common Імплементація мов в запити [[MultiLanguage]]
+ * Base class used for implementing multilang
+ * 
  * @package filamentv\multilang
  * @author FilamentV <vortex.filament@gmail.com>
  * @copyright (c) 2015, Thread
@@ -38,11 +38,8 @@ final class MultiLanguage {
         }
 
         if (empty(self::$baseFolder)) {
-            if ($str = mb_stristr(self::$homeUrl, 'frontend', TRUE))
-                self::$baseFolder = $str;
-            elseif ($str = mb_stristr(self::$homeUrl, 'backend', TRUE))
-                self::$baseFolder = $str . "backend";
-            elseif ($str = mb_stristr(self::$homeUrl, 'admin', TRUE))
+
+            if ($str = mb_stristr(self::$homeUrl, 'admin', TRUE))
                 self::$baseFolder = $str . "admin";
 
             self::$baseFolder = rtrim(self::$baseFolder, '/');

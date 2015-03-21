@@ -3,14 +3,14 @@
 namespace filamentv\multilang;
 
 /**
- * Class UrlManager
- * Common Імплементація мов в UrlManager [[UrlManager]]
+ * UrlManager used for change basic yii\web\UrlManager
+ * 
  * @package filamentv\multilang
  * @author FilamentV <vortex.filament@gmail.com>
  * @copyright (c) 2014, Thread
  * @version 20/03/2015
  */
-final class UrlManager extends \yii\web\UrlManager {
+class UrlManager extends \yii\web\UrlManager {
 
     public function createUrl($params) {
         return MultiLanguage::addLangToUrl(parent::createUrl($params));

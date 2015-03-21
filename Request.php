@@ -3,14 +3,14 @@
 namespace filamentv\multilang;
 
 /**
- * Class Request
- * Common Імплементація мов в Request [[Request]]
+ * Request used for change basic yii\web\Request
+ * 
  * @package filamentv\multilang
  * @author FilamentV <vortex.filament@gmail.com>
  * @copyright (c) 2014, Thread
  * @version 20/03/2015
  */
-final class Request extends \yii\web\Request {
+class Request extends \yii\web\Request {
 
     private $_requestUri;
 
