@@ -8,7 +8,7 @@ use filamentv\app\models\Lang;
 
 /**
  * Base class used for implementing multilang
- * 
+ *
  * @package filamentv\multilang
  * @author FilamentV <vortex.filament@gmail.com>
  * @copyright (c) 2015, Thread
@@ -26,7 +26,7 @@ final class MultiLanguage {
     protected static $homeUrl = '';
 
     /**
-     * 
+     *
      * @param string $url
      * @return self
      */
@@ -52,7 +52,7 @@ final class MultiLanguage {
     }
 
     /**
-     * 
+     *
      * @param string $url
      * @return string
      */
@@ -63,10 +63,13 @@ final class MultiLanguage {
             $_def = Lang::getDefaultLang();
             $isDefault = ($_def->alias == $domains[0]) ? true : false;
 
-            if ($exists && !$isDefault)
-                Yii::$app->language = array_shift($domains);
-            elseif ($isDefault && self::SHOW_DEFAULT)
+            if ($exists && !$isDefault) {
+                $lang = Lang::getLangByAlias($domains[0]);
+                Yii::$app->language = $lang['local'];
                 array_shift($domains);
+            } elseif ($isDefault && self::SHOW_DEFAULT) {
+                array_shift($domains);
+            }
 
             $d = (!empty($domains)) ? '/' . implode('/', $domains) : '';
 
@@ -77,36 +80,40 @@ final class MultiLanguage {
     }
 
     /**
-     * 
+     *
      * @param string $url
      * @return string
      */
     public static function addLangToUrl($url) {
         if (self::MULTI) {
             $domains = self::setDomains($url);
-            if ($domains[0] == 'frontend')
+            if ($domains[0] == 'frontend') {
                 array_shift($domains);
+            }
 
             $exists = (isset($domains[0])) ? Lang::isExists($domains[0]) : false;
             $_def = Lang::getDefaultLang();
             $isDefault = (Yii::$app->language == $_def->alias) ? true : false;
 
-            if ($exists && $isDefault && self::SHOW_DEFAULT == self::KEY_OFF)
+            if ($exists && $isDefault && self::SHOW_DEFAULT == self::KEY_OFF) {
                 array_shift($domains);
+            }
 
-            if (!$exists && !$isDefault)
-                array_unshift($domains, Yii::$app->language);
+            if (!$exists && !$isDefault) {
+                $lang = Lang::getLangByLocal(Yii::$app->language);
+                array_unshift($domains, $lang->alias);
+            }
 
             $d = (!empty($domains)) ? '/' . implode('/', $domains) : '';
 
             return self::$baseFolder . $d;
-        }else {
+        } else {
             return $url;
         }
     }
 
     /**
-     * 
+     *
      * @return string
      */
     public static function getBaseUrl() {
