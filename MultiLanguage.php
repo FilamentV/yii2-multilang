@@ -93,7 +93,7 @@ final class MultiLanguage {
 
             $exists = (isset($domains[0])) ? Lang::isExists($domains[0]) : false;
             $_def = Lang::getDefaultLang();
-            $isDefault = (Yii::$app->language == $_def->alias) ? true : false;
+            $isDefault = (Yii::$app->language == $_def->local) ? true : false;
 
             if ($exists && $isDefault && self::SHOW_DEFAULT == self::KEY_OFF) {
                 array_shift($domains);
