@@ -11,8 +11,6 @@ use filamentv\app\models\Lang;
  *
  * @package filamentv\multilang
  * @author FilamentV <vortex.filament@gmail.com>
- * @copyright (c) 2015, Thread
- * @version 20/03/2015
  */
 final class MultiLanguage {
 
