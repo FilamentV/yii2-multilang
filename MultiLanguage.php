@@ -40,11 +40,11 @@ final class MultiLanguage {
             if ($str = mb_stristr(self::$homeUrl, 'admin', TRUE))
                 self::$baseFolder = $str . "admin";
 
-            self::$baseFolder = rtrim(self::$baseFolder, '/');
-        }
+            if ($str == false && !empty(self::$homeUrl)) {
+                self::$baseFolder = rtrim(self::$homeUrl, '/');
+            }
 
-        if (!empty(self::$homeUrl)) {
-            self::$baseFolder = rtrim(self::$homeUrl, '/');
+            self::$baseFolder = rtrim(self::$baseFolder, '/');
         }
 
         $url = StringHelper::byteSubstr($url, StringHelper::byteLength(self::$baseFolder), StringHelper::byteLength($url));
