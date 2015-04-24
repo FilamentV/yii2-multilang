@@ -43,9 +43,15 @@ final class MultiLanguage {
             self::$baseFolder = rtrim(self::$baseFolder, '/');
         }
 
+        if (!empty(self::$homeUrl)) {
+            self::$baseFolder = rtrim(self::$homeUrl, '/');
+        }
+
         $url = StringHelper::byteSubstr($url, StringHelper::byteLength(self::$baseFolder), StringHelper::byteLength($url));
 
         self::$domains = explode('/', ltrim($url, '/'));
+
+
         return self::$domains;
     }
 
@@ -85,9 +91,6 @@ final class MultiLanguage {
     public static function addLangToUrl($url) {
         if (self::MULTI) {
             $domains = self::setDomains($url);
-            if ($domains[0] == 'frontend') {
-                array_shift($domains);
-            }
 
             $exists = (isset($domains[0])) ? Lang::isExists($domains[0]) : false;
             $_def = Lang::getDefaultLang();
