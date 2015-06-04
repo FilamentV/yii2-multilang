@@ -12,7 +12,7 @@ use filamentv\app\models\Lang;
  * @package filamentv\multilang
  * @author FilamentV <vortex.filament@gmail.com>
  */
-final class MultiLanguage {
+class MultiLanguage {
 
     const MULTI = 1;
     const SHOW_DEFAULT = 0;
